@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		022C0D83C63F747EDA8177B5 /* Pods_FallingWordsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B17F1E858CFC6E0F921D78 /* Pods_FallingWordsTests.framework */; };
+		79D1F5998D8084A8004B1B55 /* Pods_FallingWords.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1C2AAACC392A10F98C1065 /* Pods_FallingWords.framework */; };
+		B851DFE721FB393A002D4A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B851DFE621FB393A002D4A6C /* AppDelegate.swift */; };
+		B851DFEC21FB393A002D4A6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B851DFEA21FB393A002D4A6C /* Main.storyboard */; };
+		B851DFEE21FB393B002D4A6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B851DFED21FB393B002D4A6C /* Assets.xcassets */; };
+		B851DFF121FB393B002D4A6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B851DFEF21FB393B002D4A6C /* LaunchScreen.storyboard */; };
+		B851DFFC21FB393B002D4A6C /* FallingWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B851DFFB21FB393B002D4A6C /* FallingWordsTests.swift */; };
+		B851E00721FB3AC8002D4A6C /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = B851E00621FB3AC7002D4A6C /* words.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B851DFF821FB393B002D4A6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B851DFDB21FB393A002D4A6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B851DFE221FB393A002D4A6C;
+			remoteInfo = FallingWords;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		60B17F1E858CFC6E0F921D78 /* Pods_FallingWordsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FallingWordsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8027F29478EC1AC2D3BECBCD /* Pods-FallingWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FallingWords.release.xcconfig"; path = "Pods/Target Support Files/Pods-FallingWords/Pods-FallingWords.release.xcconfig"; sourceTree = "<group>"; };
+		880530449C81352E00EE63B6 /* Pods-FallingWordsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FallingWordsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FallingWordsTests/Pods-FallingWordsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8E1C2AAACC392A10F98C1065 /* Pods_FallingWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FallingWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B851DFE321FB393A002D4A6C /* FallingWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallingWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B851DFE621FB393A002D4A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B851DFEB21FB393A002D4A6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B851DFED21FB393B002D4A6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B851DFF021FB393B002D4A6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B851DFF221FB393B002D4A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B851DFF721FB393B002D4A6C /* FallingWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FallingWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B851DFFB21FB393B002D4A6C /* FallingWordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingWordsTests.swift; sourceTree = "<group>"; };
+		B851DFFD21FB393B002D4A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B851E00621FB3AC7002D4A6C /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		E2961C1FB14E834C85B065FF /* Pods-FallingWords.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FallingWords.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FallingWords/Pods-FallingWords.debug.xcconfig"; sourceTree = "<group>"; };
+		F71B26DFC560E01FC9192985 /* Pods-FallingWordsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FallingWordsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FallingWordsTests/Pods-FallingWordsTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B851DFE021FB393A002D4A6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79D1F5998D8084A8004B1B55 /* Pods_FallingWords.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B851DFF421FB393B002D4A6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				022C0D83C63F747EDA8177B5 /* Pods_FallingWordsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48D596FE2BDA3D26186BFD17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E1C2AAACC392A10F98C1065 /* Pods_FallingWords.framework */,
+				60B17F1E858CFC6E0F921D78 /* Pods_FallingWordsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B851DFDA21FB393A002D4A6C = {
+			isa = PBXGroup;
+			children = (
+				B851DFE521FB393A002D4A6C /* FallingWords */,
+				B851DFFA21FB393B002D4A6C /* FallingWordsTests */,
+				B851DFE421FB393A002D4A6C /* Products */,
+				CB5883FB032638CE3477DB6A /* Pods */,
+				48D596FE2BDA3D26186BFD17 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B851DFE421FB393A002D4A6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B851DFE321FB393A002D4A6C /* FallingWords.app */,
+				B851DFF721FB393B002D4A6C /* FallingWordsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B851DFE521FB393A002D4A6C /* FallingWords */ = {
+			isa = PBXGroup;
+			children = (
+				B851E00621FB3AC7002D4A6C /* words.json */,
+				B851DFE621FB393A002D4A6C /* AppDelegate.swift */,
+				B851DFEA21FB393A002D4A6C /* Main.storyboard */,
+				B851DFED21FB393B002D4A6C /* Assets.xcassets */,
+				B851DFEF21FB393B002D4A6C /* LaunchScreen.storyboard */,
+				B851DFF221FB393B002D4A6C /* Info.plist */,
+			);
+			path = FallingWords;
+			sourceTree = "<group>";
+		};
+		B851DFFA21FB393B002D4A6C /* FallingWordsTests */ = {
+			isa = PBXGroup;
+			children = (
+				B851DFFB21FB393B002D4A6C /* FallingWordsTests.swift */,
+				B851DFFD21FB393B002D4A6C /* Info.plist */,
+			);
+			path = FallingWordsTests;
+			sourceTree = "<group>";
+		};
+		CB5883FB032638CE3477DB6A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2961C1FB14E834C85B065FF /* Pods-FallingWords.debug.xcconfig */,
+				8027F29478EC1AC2D3BECBCD /* Pods-FallingWords.release.xcconfig */,
+				880530449C81352E00EE63B6 /* Pods-FallingWordsTests.debug.xcconfig */,
+				F71B26DFC560E01FC9192985 /* Pods-FallingWordsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B851DFE221FB393A002D4A6C /* FallingWords */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B851E00021FB393B002D4A6C /* Build configuration list for PBXNativeTarget "FallingWords" */;
+			buildPhases = (
+				5E5E1F4FD2EB8220369309BF /* [CP] Check Pods Manifest.lock */,
+				B851DFDF21FB393A002D4A6C /* Sources */,
+				B851DFE021FB393A002D4A6C /* Frameworks */,
+				B851DFE121FB393A002D4A6C /* Resources */,
+				A7FC92408C413212BACCE399 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FallingWords;
+			productName = FallingWords;
+			productReference = B851DFE321FB393A002D4A6C /* FallingWords.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B851DFF621FB393B002D4A6C /* FallingWordsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B851E00321FB393B002D4A6C /* Build configuration list for PBXNativeTarget "FallingWordsTests" */;
+			buildPhases = (
+				F596109A116EBF7C1E0144A4 /* [CP] Check Pods Manifest.lock */,
+				B851DFF321FB393B002D4A6C /* Sources */,
+				B851DFF421FB393B002D4A6C /* Frameworks */,
+				B851DFF521FB393B002D4A6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B851DFF921FB393B002D4A6C /* PBXTargetDependency */,
+			);
+			name = FallingWordsTests;
+			productName = FallingWordsTests;
+			productReference = B851DFF721FB393B002D4A6C /* FallingWordsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B851DFDB21FB393A002D4A6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = AlexShubin;
+				TargetAttributes = {
+					B851DFE221FB393A002D4A6C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					B851DFF621FB393B002D4A6C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = B851DFE221FB393A002D4A6C;
+					};
+				};
+			};
+			buildConfigurationList = B851DFDE21FB393A002D4A6C /* Build configuration list for PBXProject "FallingWords" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B851DFDA21FB393A002D4A6C;
+			productRefGroup = B851DFE421FB393A002D4A6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B851DFE221FB393A002D4A6C /* FallingWords */,
+				B851DFF621FB393B002D4A6C /* FallingWordsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B851DFE121FB393A002D4A6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B851DFF121FB393B002D4A6C /* LaunchScreen.storyboard in Resources */,
+				B851E00721FB3AC8002D4A6C /* words.json in Resources */,
+				B851DFEE21FB393B002D4A6C /* Assets.xcassets in Resources */,
+				B851DFEC21FB393A002D4A6C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B851DFF521FB393B002D4A6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E5E1F4FD2EB8220369309BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FallingWords-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7FC92408C413212BACCE399 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FallingWords/Pods-FallingWords-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxFeedback/RxFeedback.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFeedback.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FallingWords/Pods-FallingWords-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F596109A116EBF7C1E0144A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FallingWordsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B851DFDF21FB393A002D4A6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B851DFE721FB393A002D4A6C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B851DFF321FB393B002D4A6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B851DFFC21FB393B002D4A6C /* FallingWordsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B851DFF921FB393B002D4A6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B851DFE221FB393A002D4A6C /* FallingWords */;
+			targetProxy = B851DFF821FB393B002D4A6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B851DFEA21FB393A002D4A6C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B851DFEB21FB393A002D4A6C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B851DFEF21FB393B002D4A6C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B851DFF021FB393B002D4A6C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B851DFFE21FB393B002D4A6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B851DFFF21FB393B002D4A6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B851E00121FB393B002D4A6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2961C1FB14E834C85B065FF /* Pods-FallingWords.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FallingWords/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.avs.FallingWords;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B851E00221FB393B002D4A6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8027F29478EC1AC2D3BECBCD /* Pods-FallingWords.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = FallingWords/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.avs.FallingWords;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B851E00421FB393B002D4A6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 880530449C81352E00EE63B6 /* Pods-FallingWordsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBNKHS73S3;
+				INFOPLIST_FILE = FallingWordsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.avs.FallingWordsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FallingWords.app/FallingWords";
+			};
+			name = Debug;
+		};
+		B851E00521FB393B002D4A6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F71B26DFC560E01FC9192985 /* Pods-FallingWordsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RBNKHS73S3;
+				INFOPLIST_FILE = FallingWordsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.avs.FallingWordsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FallingWords.app/FallingWords";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B851DFDE21FB393A002D4A6C /* Build configuration list for PBXProject "FallingWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B851DFFE21FB393B002D4A6C /* Debug */,
+				B851DFFF21FB393B002D4A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B851E00021FB393B002D4A6C /* Build configuration list for PBXNativeTarget "FallingWords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B851E00121FB393B002D4A6C /* Debug */,
+				B851E00221FB393B002D4A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B851E00321FB393B002D4A6C /* Build configuration list for PBXNativeTarget "FallingWordsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B851E00421FB393B002D4A6C /* Debug */,
+				B851E00521FB393B002D4A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B851DFDB21FB393A002D4A6C /* Project object */;
+}
