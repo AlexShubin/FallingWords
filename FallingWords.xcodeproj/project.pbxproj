@@ -15,6 +15,8 @@
 		B851DFF121FB393B002D4A6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B851DFEF21FB393B002D4A6C /* LaunchScreen.storyboard */; };
 		B851DFFC21FB393B002D4A6C /* FallingWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B851DFFB21FB393B002D4A6C /* FallingWordsTests.swift */; };
 		B851E00721FB3AC8002D4A6C /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = B851E00621FB3AC7002D4A6C /* words.json */; };
+		B89BCAC821FB5CE900F0EB5B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89BCAC621FB5CE900F0EB5B /* Strings.swift */; };
+		B89BCAC921FB5CE900F0EB5B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B89BCAC721FB5CE900F0EB5B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		B851DFFB21FB393B002D4A6C /* FallingWordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingWordsTests.swift; sourceTree = "<group>"; };
 		B851DFFD21FB393B002D4A6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B851E00621FB3AC7002D4A6C /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		B89BCAC621FB5CE900F0EB5B /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strings.swift; path = FallingWords/Strings.swift; sourceTree = SOURCE_ROOT; };
+		B89BCAC721FB5CE900F0EB5B /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = FallingWords/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		E2961C1FB14E834C85B065FF /* Pods-FallingWords.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FallingWords.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FallingWords/Pods-FallingWords.debug.xcconfig"; sourceTree = "<group>"; };
 		F71B26DFC560E01FC9192985 /* Pods-FallingWordsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FallingWordsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FallingWordsTests/Pods-FallingWordsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +107,8 @@
 				B851DFEA21FB393A002D4A6C /* Main.storyboard */,
 				B851DFED21FB393B002D4A6C /* Assets.xcassets */,
 				B851DFEF21FB393B002D4A6C /* LaunchScreen.storyboard */,
+				B89BCAC721FB5CE900F0EB5B /* Localizable.strings */,
+				B89BCAC621FB5CE900F0EB5B /* Strings.swift */,
 				B851DFF221FB393B002D4A6C /* Info.plist */,
 			);
 			path = FallingWords;
@@ -136,10 +142,12 @@
 			buildConfigurationList = B851E00021FB393B002D4A6C /* Build configuration list for PBXNativeTarget "FallingWords" */;
 			buildPhases = (
 				5E5E1F4FD2EB8220369309BF /* [CP] Check Pods Manifest.lock */,
+				B89BCACA21FB5D2300F0EB5B /* SwiftGen */,
 				B851DFDF21FB393A002D4A6C /* Sources */,
 				B851DFE021FB393A002D4A6C /* Frameworks */,
 				B851DFE121FB393A002D4A6C /* Resources */,
 				A7FC92408C413212BACCE399 /* [CP] Embed Pods Frameworks */,
+				B89BCAC521FB5AC600F0EB5B /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -158,6 +166,7 @@
 				B851DFF321FB393B002D4A6C /* Sources */,
 				B851DFF421FB393B002D4A6C /* Frameworks */,
 				B851DFF521FB393B002D4A6C /* Resources */,
+				C7576F0F4AD78F528807B865 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89BCAC921FB5CE900F0EB5B /* Localizable.strings in Resources */,
 				B851DFF121FB393B002D4A6C /* LaunchScreen.storyboard in Resources */,
 				B851E00721FB3AC8002D4A6C /* words.json in Resources */,
 				B851DFEE21FB393B002D4A6C /* Assets.xcassets in Resources */,
@@ -263,7 +273,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxFeedback/RxFeedback.framework",
-				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -273,12 +282,73 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFeedback.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FallingWords/Pods-FallingWords-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B89BCAC521FB5AC600F0EB5B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		B89BCACA21FB5D2300F0EB5B /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen strings -t structured-swift4 $TARGET_NAME/Localizable.strings -o $TARGET_NAME/Strings.swift \n";
+		};
+		C7576F0F4AD78F528807B865 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FallingWordsTests/Pods-FallingWordsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FallingWordsTests/Pods-FallingWordsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F596109A116EBF7C1E0144A4 /* [CP] Check Pods Manifest.lock */ = {
@@ -310,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B89BCAC821FB5CE900F0EB5B /* Strings.swift in Sources */,
 				B851DFE721FB393A002D4A6C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,7 +583,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 880530449C81352E00EE63B6 /* Pods-FallingWordsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBNKHS73S3;
@@ -534,7 +604,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F71B26DFC560E01FC9192985 /* Pods-FallingWordsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RBNKHS73S3;

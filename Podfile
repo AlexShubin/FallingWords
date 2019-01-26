@@ -3,17 +3,20 @@ platform :ios, '11.0'
 use_frameworks!
 inhibit_all_warnings!
 
-target 'FallingWords' do
+def shared_pods
   pod 'RxSwift'
+end
+
+target 'FallingWords' do
+  shared_pods
   pod 'RxCocoa'
-  
   pod 'RxFeedback'
-  pod 'RxOptional'
 
   pod 'SwiftLint'
   pod 'SwiftGen'
 end
 
 target 'FallingWordsTests' do
-    
+  shared_pods
+  pod 'RxTest'
 end
