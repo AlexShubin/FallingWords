@@ -6,7 +6,7 @@
 struct AppState: Equatable {
     static let initial = AppState()
 
-    /// All data required to run full game session.
+    /// All data required to run a full game session.
     var roundsData = [RoundData]()
     /// Number of rounds in a session.
     var roundsCount = 10
@@ -14,6 +14,8 @@ struct AppState: Equatable {
     var gameIsStarted = false
     /// Current round.
     var currentRound = 0
+    /// Accumulated results of the game session.
+    var gameResults = GameResults.empty
 }
 
 // MARK: - Events
@@ -45,7 +47,20 @@ extension AppState {
             result.gameIsStarted = true
         case .answer(let correct):
             result.currentRound += 1
+            if correct == state.currentRoundData.isTranslationCorrect {
+                result.gameResults.rightAnswers += 1
+            } else {
+                result.gameResults.wrongAnswers += 1
+            }
+            print(result.gameResults)
         }
         return result
+    }
+}
+
+// MARK: - Helpers
+extension AppState {
+    var currentRoundData: RoundData {
+        return roundsData[currentRound]
     }
 }
