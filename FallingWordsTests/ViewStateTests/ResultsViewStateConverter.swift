@@ -19,7 +19,7 @@ class ResultsViewStateConverterTests: XCTestCase {
         // Then
         XCTAssertEqual(viewState,
                        ResultsViewState(rightAnswersText: L10n.ResultsScreen.rightAnswers(1),
-                                        wrongAnswersText: L10n.ResultsScreen.rightAnswers(2),
-                                        noAnswersText: L10n.ResultsScreen.rightAnswers(3)))
+                                        wrongAnswersText: L10n.ResultsScreen.wrongAnswers(2),
+                                        noAnswersText: L10n.ResultsScreen.noAnswers(3)))
     }
 }

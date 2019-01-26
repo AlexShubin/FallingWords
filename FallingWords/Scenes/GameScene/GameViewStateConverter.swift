@@ -8,7 +8,7 @@
 
 struct GameViewStateConverter {
     func convert(from state: AppState) -> GameViewState {
-        guard !state.roundsData.isEmpty else {
+        guard state.currentRound < state.roundsData.count else {
             return .empty
         }
         let currentRound = state.roundsData[state.currentRound]

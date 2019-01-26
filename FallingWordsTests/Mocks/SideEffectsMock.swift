@@ -10,6 +10,13 @@
 import RxSwift
 
 struct SideEffectsMock: SideEffects {
+    var showResults: () -> Observable<AppEvent> {
+        return {
+            self.effects.onNext(#function)
+            return .empty()
+        }
+    }
+
     var provideShuffledRoundsData: (Int) -> Observable<AppEvent> {
         return { _ in
             self.effects.onNext(#function)

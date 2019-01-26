@@ -9,7 +9,7 @@
 struct ResultsViewStateConverter {
     func convert(from state: AppState) -> ResultsViewState {
         return ResultsViewState(rightAnswersText: L10n.ResultsScreen.rightAnswers(state.gameResults.rightAnswers),
-                                wrongAnswersText: L10n.ResultsScreen.rightAnswers(state.gameResults.wrongAnswers),
-                                noAnswersText: L10n.ResultsScreen.rightAnswers(state.gameResults.noAnswers))
+                                wrongAnswersText: L10n.ResultsScreen.wrongAnswers(state.gameResults.wrongAnswers),
+                                noAnswersText: L10n.ResultsScreen.noAnswers(state.gameResults.noAnswers))
     }
 }

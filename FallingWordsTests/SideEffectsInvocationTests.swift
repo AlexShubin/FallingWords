@@ -24,7 +24,7 @@ class SideEffectsInvocationTests: XCTestCase {
         stateStore = AppStateStore(sideEffects: sideEffectsMock, scheduler: testScheduler)
     }
 
-    func testProvidesRoundsDataOnInitialState() {
+    func testProvidesRoundsDataOnStartGame() {
         // Given
         let effectsObserver = testScheduler.createObserver(String.self)
         testScheduler.createColdObservable([
@@ -42,6 +42,33 @@ class SideEffectsInvocationTests: XCTestCase {
         // Then
         XCTAssertEqual(effectsObserver.events, [
             Recorded.next(210, "provideShuffledRoundsData")
+            ])
+    }
+
+    func testShowsResultWhenMaximumRoundsCountAchieved() {
+        // Given
+        var state = AppState.initial
+        state.roundsCount = 3
+        stateStore = AppStateStore(sideEffects: sideEffectsMock, scheduler: testScheduler, initialState: state)
+        let effectsObserver = testScheduler.createObserver(String.self)
+        testScheduler.createColdObservable([
+            Recorded.next(220, .roundsDataLoaded(TestData.roundsData)),
+            Recorded.next(230, .answer(correct: true)),
+            Recorded.next(240, .answer(correct: true)),
+            Recorded.next(250, .answer(correct: true))
+            ])
+            .bind(to: stateStore.eventBus)
+            .disposed(by: bag)
+        sideEffectsMock.effects
+            .subscribe(effectsObserver)
+            .disposed(by: bag)
+        // When
+        _ = testScheduler.start { [unowned self] in
+            self.stateStore.stateBus.asObservable()
+        }
+        // Then
+        XCTAssertEqual(effectsObserver.events, [
+            Recorded.next(250, "showResults")
             ])
     }
 }

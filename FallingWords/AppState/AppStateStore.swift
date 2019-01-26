@@ -11,7 +11,9 @@ struct AppStateStore {
     let eventBus: PublishRelay<AppEvent>
     let stateBus: Signal<AppState>
 
-    init(sideEffects: SideEffects, scheduler: SchedulerType = MainScheduler.instance) {
+    init(sideEffects: SideEffects,
+         scheduler: SchedulerType = MainScheduler.instance,
+         initialState: AppState = .initial) {
         let events = PublishRelay<AppEvent>()
         eventBus = events
         let eventBusFeedback: FeedbackLoop = { _ -> Observable<AppEvent> in
@@ -19,7 +21,7 @@ struct AppStateStore {
         }
         var feedBacks = sideEffects.feedbackLoops
         feedBacks.append(eventBusFeedback)
-        stateBus = Observable.system(initialState: AppState.initial,
+        stateBus = Observable.system(initialState: initialState,
                                      reduce: AppState.reduce,
                                      scheduler: scheduler,
                                      scheduledFeedback: feedBacks)

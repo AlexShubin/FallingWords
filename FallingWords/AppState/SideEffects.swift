@@ -9,12 +9,14 @@ typealias FeedbackLoop = (ObservableSchedulerContext<AppState>) -> Observable<Ap
 
 protocol SideEffects {
     var provideShuffledRoundsData: (_ roundsCount: Int) -> Observable<AppEvent> { get }
+    var showResults: () -> Observable<AppEvent> { get }
 }
 
 extension SideEffects {
     var feedbackLoops: [FeedbackLoop] {
         return [
-            react(query: { $0.queryShouldProvideNewRoundsOfCount }, effects: provideShuffledRoundsData)
+            react(query: { $0.queryShouldProvideNewRoundsOfCount }, effects: provideShuffledRoundsData),
+            react(query: { $0.queryLastRoundFinished }, effects: showResults)
         ]
     }
 }
@@ -22,10 +24,17 @@ extension SideEffects {
 struct AppSideEffects: SideEffects {
 
     let roundsDataProvider: RoundsDataProvider
+    let sceneCoordinator: SceneCoordinatorType
 
     var provideShuffledRoundsData: (Int) -> Observable<AppEvent> {
         return { roundsCount in
             .just(.roundsDataLoaded(self.roundsDataProvider.provide(roundsCount)))
+        }
+    }
+
+    var showResults: () -> Observable<AppEvent> {
+        return {
+            self.sceneCoordinator.push(scene: .results).map { .stopGame }
         }
     }
 }

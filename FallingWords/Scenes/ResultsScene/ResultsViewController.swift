@@ -42,6 +42,7 @@ class ResultsViewController: UIViewController {
 
         view.backgroundColor = .white
         title = L10n.ResultsScreen.title
+        navigationItem.leftBarButtonItem = UIBarButtonItem()
     }
 
     private func _setupLayout() {
@@ -77,8 +78,8 @@ class ResultsViewController: UIViewController {
 
     func render(with state: ResultsViewState) {
         _rightAnswersLabel.text = state.rightAnswersText
-        _rightAnswersLabel.text = state.rightAnswersText
         _wrongAnswersLabel.text = state.wrongAnswersText
+        _noAnswersLabel.text = state.noAnswersText
     }
 }
 

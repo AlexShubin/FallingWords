@@ -19,13 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Coordinator and scene factory
-        let vcFactory = SceneFactory(gameViewStateConverter: GameViewStateConverter())
+        let vcFactory = SceneFactory(gameViewStateConverter: GameViewStateConverter(),
+                                     resultsViewStateConverter: ResultsViewStateConverter())
         let coordinator: SceneCoordinatorType = SceneCoordinator(window: window!, viewControllerFactory: vcFactory)
         // Service layer
         let translatedWordsLoader = TranslatedWordsLoader.makeDiskLoader(with: _fileName,
                                                                          parser: TranslatedWordsParser())
-        let sideEffects = AppSideEffects(roundsDataProvider:
-            RoundsDataProvider.makeShuffledProvider(with: translatedWordsLoader)
+        let sideEffects = AppSideEffects(
+            roundsDataProvider: RoundsDataProvider.makeShuffledProvider(with: translatedWordsLoader),
+            sceneCoordinator: coordinator
         )
         // State store
         appStateStore = AppStateStore(sideEffects: sideEffects)

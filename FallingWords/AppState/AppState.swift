@@ -24,6 +24,8 @@ enum AppEvent: Equatable {
     case answer(correct: Bool)
     /// Starts game.
     case startGame
+    /// Stops game.
+    case stopGame
     /// New rounds data loaded.
     case roundsDataLoaded([RoundData])
 }
@@ -32,6 +34,9 @@ enum AppEvent: Equatable {
 extension AppState {
     var queryShouldProvideNewRoundsOfCount: Int? {
         return roundsData.isEmpty && gameIsStarted ? roundsCount : nil
+    }
+    var queryLastRoundFinished: Void? {
+        return currentRound >= roundsCount ? () : nil
     }
 }
 
@@ -53,6 +58,9 @@ extension AppState {
                 result.gameResults.wrongAnswers += 1
             }
             print(result.gameResults)
+        case .stopGame:
+            result.gameIsStarted = false
+            result.currentRound = 0
         }
         return result
     }
