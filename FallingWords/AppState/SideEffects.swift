@@ -7,24 +7,25 @@ import RxFeedback
 
 typealias FeedbackLoop = (ObservableSchedulerContext<AppState>) -> Observable<AppEvent>
 
-protocol FeedbackLoopsHolder {
-    var feedbackLoops: [FeedbackLoop] { get }
-}
-
-protocol SideEffects: FeedbackLoopsHolder {
-//    var show: () -> Observable<AppEvent> { get }
-//    var close: () -> Observable<AppEvent> { get }
+protocol SideEffects {
+    var provideShuffledRoundsData: (_ roundsCount: Int) -> Observable<AppEvent> { get }
 }
 
 extension SideEffects {
     var feedbackLoops: [FeedbackLoop] {
         return [
-            //react(query: { $0.queryShow }, effects: show),
-            //react(query: { $0.queryClose }, effects: close)
+            react(query: { $0.queryShouldProvideNewRoundsOfCount }, effects: provideShuffledRoundsData)
         ]
     }
 }
 
 struct AppSideEffects: SideEffects {
 
+    let roundsDataProvider: RoundsDataProvider
+
+    var provideShuffledRoundsData: (Int) -> Observable<AppEvent> {
+        return { roundsCount in
+            .just(.roundsDataLoaded(self.roundsDataProvider.provide(roundsCount)))
+        }
+    }
 }

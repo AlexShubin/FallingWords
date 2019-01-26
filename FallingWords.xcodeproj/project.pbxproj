@@ -22,6 +22,7 @@
 		B84E74DE21FC68A900880EB1 /* AppStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74DD21FC68A900880EB1 /* AppStateStore.swift */; };
 		B84E74E121FC6BCF00880EB1 /* ReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74E021FC6BCF00880EB1 /* ReducerTests.swift */; };
 		B84E74E321FC6D1500880EB1 /* SideEffectsInvocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74E221FC6D1500880EB1 /* SideEffectsInvocationTests.swift */; };
+		B84E74E621FC705500880EB1 /* SideEffectsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74E521FC705500880EB1 /* SideEffectsMock.swift */; };
 		B851DFE721FB393A002D4A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B851DFE621FB393A002D4A6C /* AppDelegate.swift */; };
 		B851DFEC21FB393A002D4A6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B851DFEA21FB393A002D4A6C /* Main.storyboard */; };
 		B851DFEE21FB393B002D4A6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B851DFED21FB393B002D4A6C /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		B84E74DD21FC68A900880EB1 /* AppStateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateStore.swift; sourceTree = "<group>"; };
 		B84E74E021FC6BCF00880EB1 /* ReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
 		B84E74E221FC6D1500880EB1 /* SideEffectsInvocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectsInvocationTests.swift; sourceTree = "<group>"; };
+		B84E74E521FC705500880EB1 /* SideEffectsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectsMock.swift; sourceTree = "<group>"; };
 		B851DFE321FB393A002D4A6C /* FallingWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallingWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B851DFE621FB393A002D4A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B851DFEB21FB393A002D4A6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,13 +124,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B84E74D321FC573100880EB1 /* Services */ = {
+		B84E74D321FC573100880EB1 /* ServicesTests */ = {
 			isa = PBXGroup;
 			children = (
 				B84E74CC21FC54A900880EB1 /* TranslatedWordsParserTests.swift */,
 				B84E74D421FC575D00880EB1 /* RoundsDataProviderTests.swift */,
 			);
-			path = Services;
+			path = ServicesTests;
 			sourceTree = "<group>";
 		};
 		B84E74D821FC687B00880EB1 /* AppState */ = {
@@ -139,6 +141,22 @@
 				B84E74DB21FC68A200880EB1 /* SideEffects.swift */,
 			);
 			path = AppState;
+			sourceTree = "<group>";
+		};
+		B84E74E421FC703200880EB1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B84E74E521FC705500880EB1 /* SideEffectsMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		B84E74E721FC73A700880EB1 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				B84E74D621FC58B200880EB1 /* TestData.swift */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 		B851DFDA21FB393A002D4A6C = {
@@ -182,10 +200,11 @@
 		B851DFFA21FB393B002D4A6C /* FallingWordsTests */ = {
 			isa = PBXGroup;
 			children = (
-				B84E74D621FC58B200880EB1 /* TestData.swift */,
+				B84E74E721FC73A700880EB1 /* TestData */,
+				B84E74E421FC703200880EB1 /* Mocks */,
+				B84E74D321FC573100880EB1 /* ServicesTests */,
 				B84E74E021FC6BCF00880EB1 /* ReducerTests.swift */,
 				B84E74E221FC6D1500880EB1 /* SideEffectsInvocationTests.swift */,
-				B84E74D321FC573100880EB1 /* Services */,
 				B851DFFD21FB393B002D4A6C /* Info.plist */,
 			);
 			path = FallingWordsTests;
@@ -403,6 +422,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FallingWordsTests/Pods-FallingWordsTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
 			);
@@ -411,6 +431,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
 			);
@@ -470,6 +491,7 @@
 				B84E74E121FC6BCF00880EB1 /* ReducerTests.swift in Sources */,
 				B84E74D521FC575D00880EB1 /* RoundsDataProviderTests.swift in Sources */,
 				B84E74E321FC6D1500880EB1 /* SideEffectsInvocationTests.swift in Sources */,
+				B84E74E621FC705500880EB1 /* SideEffectsMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

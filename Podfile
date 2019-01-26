@@ -5,11 +5,11 @@ inhibit_all_warnings!
 
 def shared_pods
   pod 'RxSwift'
+  pod 'RxCocoa'
 end
 
 target 'FallingWords' do
   shared_pods
-  pod 'RxCocoa'
   pod 'RxFeedback'
 
   pod 'SwiftLint'
