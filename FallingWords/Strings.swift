@@ -22,6 +22,25 @@ internal enum L10n {
     /// Wrong
     internal static let wrongButton = L10n.tr("Localizable", "game_screen.wrong_button")
   }
+
+  internal enum ResultsScreen {
+    /// Your results
+    internal static let header = L10n.tr("Localizable", "results_screen.header")
+    /// No answers: %ld
+    internal static func noAnswers(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "results_screen.no_answers", p1)
+    }
+    /// Right answers: %ld
+    internal static func rightAnswers(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "results_screen.right_answers", p1)
+    }
+    /// Results
+    internal static let title = L10n.tr("Localizable", "results_screen.title")
+    /// Wrong answers: %ld
+    internal static func wrongAnswers(_ p1: Int) -> String {
+      return L10n.tr("Localizable", "results_screen.wrong_answers", p1)
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

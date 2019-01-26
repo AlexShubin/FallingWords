@@ -23,14 +23,8 @@ class GameViewController: UIViewController {
         label.font = GameViewController.Constants.headerFont
         return label
     }()
-    private let _wordLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-    private let _floatingWordLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
+    private let _wordLabel = UILabel()
+    private let _floatingWordLabel = UILabel()
     private var _floatingWordTopConstraint: NSLayoutConstraint?
     private let _rightButton: UIButton = {
         let button = UIButton(type: .system)

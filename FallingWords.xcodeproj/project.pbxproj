@@ -18,6 +18,10 @@
 		B84595C421FC8C6900627186 /* GameViewStateConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595C321FC8C6900627186 /* GameViewStateConverterTests.swift */; };
 		B84595C621FC8F5B00627186 /* GameResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595C521FC8F5B00627186 /* GameResults.swift */; };
 		B84595C821FC915800627186 /* State+ApplyEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595C721FC915800627186 /* State+ApplyEvents.swift */; };
+		B84595CB21FC97B500627186 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595CA21FC97B500627186 /* ResultsViewController.swift */; };
+		B84595CD21FC98E800627186 /* ResultsViewStateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595CC21FC98E800627186 /* ResultsViewStateConverter.swift */; };
+		B84595CF21FC991D00627186 /* ResultsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595CE21FC991D00627186 /* ResultsViewState.swift */; };
+		B84595D121FC9AB600627186 /* ResultsViewStateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595D021FC9AB600627186 /* ResultsViewStateConverter.swift */; };
 		B84E74C621FC520700880EB1 /* TranslatedWordsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74C521FC520700880EB1 /* TranslatedWordsParser.swift */; };
 		B84E74C921FC523000880EB1 /* TranslatedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74C821FC523000880EB1 /* TranslatedWord.swift */; };
 		B84E74CB21FC534C00880EB1 /* TranslatedWordsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74CA21FC534C00880EB1 /* TranslatedWordsLoader.swift */; };
@@ -65,6 +69,10 @@
 		B84595C321FC8C6900627186 /* GameViewStateConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewStateConverterTests.swift; sourceTree = "<group>"; };
 		B84595C521FC8F5B00627186 /* GameResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResults.swift; sourceTree = "<group>"; };
 		B84595C721FC915800627186 /* State+ApplyEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "State+ApplyEvents.swift"; sourceTree = "<group>"; };
+		B84595CA21FC97B500627186 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		B84595CC21FC98E800627186 /* ResultsViewStateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewStateConverter.swift; sourceTree = "<group>"; };
+		B84595CE21FC991D00627186 /* ResultsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewState.swift; sourceTree = "<group>"; };
+		B84595D021FC9AB600627186 /* ResultsViewStateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewStateConverter.swift; sourceTree = "<group>"; };
 		B84E74C521FC520700880EB1 /* TranslatedWordsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedWordsParser.swift; sourceTree = "<group>"; };
 		B84E74C821FC523000880EB1 /* TranslatedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedWord.swift; sourceTree = "<group>"; };
 		B84E74CA21FC534C00880EB1 /* TranslatedWordsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedWordsLoader.swift; sourceTree = "<group>"; };
@@ -126,6 +134,7 @@
 		B84595AD21FC769D00627186 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B84595C921FC974D00627186 /* ResultsScene */,
 				B84595AE21FC76A700627186 /* GameScene */,
 			);
 			path = Scenes;
@@ -162,8 +171,19 @@
 			isa = PBXGroup;
 			children = (
 				B84595C321FC8C6900627186 /* GameViewStateConverterTests.swift */,
+				B84595D021FC9AB600627186 /* ResultsViewStateConverter.swift */,
 			);
 			path = ViewStateTests;
+			sourceTree = "<group>";
+		};
+		B84595C921FC974D00627186 /* ResultsScene */ = {
+			isa = PBXGroup;
+			children = (
+				B84595CA21FC97B500627186 /* ResultsViewController.swift */,
+				B84595CC21FC98E800627186 /* ResultsViewStateConverter.swift */,
+				B84595CE21FC991D00627186 /* ResultsViewState.swift */,
+			);
+			path = ResultsScene;
 			sourceTree = "<group>";
 		};
 		B84E74C421FC51C200880EB1 /* Services */ = {
@@ -543,10 +563,13 @@
 				B84595BD21FC839600627186 /* Scene.swift in Sources */,
 				B84595BF21FC839B00627186 /* SceneCoordinator.swift in Sources */,
 				B84595BA21FC809B00627186 /* StateStoreBindable.swift in Sources */,
+				B84595CB21FC97B500627186 /* ResultsViewController.swift in Sources */,
 				B84E74DE21FC68A900880EB1 /* AppStateStore.swift in Sources */,
 				B84E74CB21FC534C00880EB1 /* TranslatedWordsLoader.swift in Sources */,
+				B84595CD21FC98E800627186 /* ResultsViewStateConverter.swift in Sources */,
 				B84595C621FC8F5B00627186 /* GameResults.swift in Sources */,
 				B84E74D221FC562500880EB1 /* RoundsDataProvider.swift in Sources */,
+				B84595CF21FC991D00627186 /* ResultsViewState.swift in Sources */,
 				B84E74DA21FC689D00880EB1 /* AppState.swift in Sources */,
 				B89BCAC821FB5CE900F0EB5B /* Strings.swift in Sources */,
 				B84E74C921FC523000880EB1 /* TranslatedWord.swift in Sources */,
@@ -569,6 +592,7 @@
 				B84E74D521FC575D00880EB1 /* RoundsDataProviderTests.swift in Sources */,
 				B84595C421FC8C6900627186 /* GameViewStateConverterTests.swift in Sources */,
 				B84E74E321FC6D1500880EB1 /* SideEffectsInvocationTests.swift in Sources */,
+				B84595D121FC9AB600627186 /* ResultsViewStateConverter.swift in Sources */,
 				B84E74E621FC705500880EB1 /* SideEffectsMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,4 +4,10 @@
 "game_screen.right_button" = "Right!";
 "game_screen.wrong_button" = "Wrong";
 
+"results_screen.title" = "Results";
+"results_screen.header" = "Your results";
+"results_screen.right_answers" = "Right answers: %ld";
+"results_screen.wrong_answers" = "Wrong answers: %ld";
+"results_screen.no_answers" = "No answers: %ld";
+
 
