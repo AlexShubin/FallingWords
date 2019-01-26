@@ -5,6 +5,9 @@ PODS:
   - RxFeedback (1.1.1):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
+  - RxOptional (3.6.2):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
   - RxTest (4.4.0):
@@ -16,6 +19,7 @@ PODS:
 DEPENDENCIES:
   - RxCocoa
   - RxFeedback
+  - RxOptional
   - RxSwift
   - RxTest
   - SwiftGen
@@ -26,6 +30,7 @@ SPEC REPOS:
     - RxAtomic
     - RxCocoa
     - RxFeedback
+    - RxOptional
     - RxSwift
     - RxTest
     - SwiftGen
@@ -35,11 +40,12 @@ SPEC CHECKSUMS:
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxFeedback: 640e317bc7f6c4914c39a2063c6d5c0e6c1aa65d
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
   SwiftGen: e5b047067aa84082826a0c4f1c4c2ddc95bcf74c
   SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 15bf8ce6c27804bfcb6745299d8c28ebe8508462
+PODFILE CHECKSUM: ddc46c174a7429d13702b2e2813301d67cbf2aab
 
 COCOAPODS: 1.5.3

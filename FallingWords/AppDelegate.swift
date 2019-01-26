@@ -11,11 +11,28 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    private let _fileName = "words.json"
+
     var window: UIWindow?
+    var appStateStore: AppStateStore!
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Coordinator and scene factory
+        let vcFactory = SceneFactory(gameViewStateConverter: GameViewStateConverter())
+        let coordinator: SceneCoordinatorType = SceneCoordinator(window: window!, viewControllerFactory: vcFactory)
+        // Service layer
+        let translatedWordsLoader = TranslatedWordsLoader.makeDiskLoader(with: _fileName,
+                                                                         parser: TranslatedWordsParser())
+        let sideEffects = AppSideEffects(roundsDataProvider:
+            RoundsDataProvider.makeShuffledProvider(with: translatedWordsLoader)
+        )
+        // State store
+        appStateStore = AppStateStore(sideEffects: sideEffects)
+        vcFactory.setUp(appStateStore: appStateStore)
+        coordinator.setRoot(scene: .game)
+        // Run the game right away
+        appStateStore.eventBus.accept(.startGame)
         return true
     }
 

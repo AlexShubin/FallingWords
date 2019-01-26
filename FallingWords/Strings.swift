@@ -11,8 +11,17 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
-  /// str1
-  internal static let str1 = L10n.tr("Localizable", "str1")
+
+  internal enum GameScreen {
+    /// Is that translation correct?
+    internal static let header = L10n.tr("Localizable", "game_screen.header")
+    /// Right!
+    internal static let rightButton = L10n.tr("Localizable", "game_screen.right_button")
+    /// Game
+    internal static let title = L10n.tr("Localizable", "game_screen.title")
+    /// Wrong
+    internal static let wrongButton = L10n.tr("Localizable", "game_screen.wrong_button")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name

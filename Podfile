@@ -10,6 +10,7 @@ end
 
 target 'FallingWords' do
   shared_pods
+  pod 'RxOptional'
   pod 'RxFeedback'
 
   pod 'SwiftLint'

@@ -6,36 +6,23 @@ import RxSwift
 import RxCocoa
 import RxFeedback
 
-protocol StateStore {
-    var eventBus: PublishRelay<AppEvent> { get }
-    var stateBus: Signal<AppState> { get }
-    func run()
-}
-
-struct AppStateStore: StateStore {
+struct AppStateStore {
 
     let eventBus: PublishRelay<AppEvent>
     let stateBus: Signal<AppState>
 
     init(sideEffects: SideEffects, scheduler: SchedulerType = MainScheduler.instance) {
-
         let events = PublishRelay<AppEvent>()
         eventBus = events
         let eventBusFeedback: FeedbackLoop = { _ -> Observable<AppEvent> in
             events.asObservable()
         }
-
         var feedBacks = sideEffects.feedbackLoops
         feedBacks.append(eventBusFeedback)
-
         stateBus = Observable.system(initialState: AppState.initial,
                                      reduce: AppState.reduce,
                                      scheduler: scheduler,
                                      scheduledFeedback: feedBacks)
             .asSignal(onErrorSignalWith: .never())
-    }
-
-    func run() {
-        _ = stateBus.emit()
     }
 }

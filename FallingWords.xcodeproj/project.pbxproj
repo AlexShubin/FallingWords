@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		022C0D83C63F747EDA8177B5 /* Pods_FallingWordsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60B17F1E858CFC6E0F921D78 /* Pods_FallingWordsTests.framework */; };
 		79D1F5998D8084A8004B1B55 /* Pods_FallingWords.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1C2AAACC392A10F98C1065 /* Pods_FallingWords.framework */; };
+		B84595B021FC76CC00627186 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595AF21FC76CC00627186 /* GameViewController.swift */; };
+		B84595B521FC7FB200627186 /* GameViewStateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595B421FC7FB200627186 /* GameViewStateConverter.swift */; };
+		B84595B721FC7FBC00627186 /* GameViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595B621FC7FBC00627186 /* GameViewState.swift */; };
+		B84595BA21FC809B00627186 /* StateStoreBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595B921FC809B00627186 /* StateStoreBindable.swift */; };
+		B84595BD21FC839600627186 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595BC21FC839600627186 /* Scene.swift */; };
+		B84595BF21FC839B00627186 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595BE21FC839B00627186 /* SceneCoordinator.swift */; };
+		B84595C421FC8C6900627186 /* GameViewStateConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84595C321FC8C6900627186 /* GameViewStateConverterTests.swift */; };
 		B84E74C621FC520700880EB1 /* TranslatedWordsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74C521FC520700880EB1 /* TranslatedWordsParser.swift */; };
 		B84E74C921FC523000880EB1 /* TranslatedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74C821FC523000880EB1 /* TranslatedWord.swift */; };
 		B84E74CB21FC534C00880EB1 /* TranslatedWordsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74CA21FC534C00880EB1 /* TranslatedWordsLoader.swift */; };
@@ -47,6 +54,13 @@
 		8027F29478EC1AC2D3BECBCD /* Pods-FallingWords.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FallingWords.release.xcconfig"; path = "Pods/Target Support Files/Pods-FallingWords/Pods-FallingWords.release.xcconfig"; sourceTree = "<group>"; };
 		880530449C81352E00EE63B6 /* Pods-FallingWordsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FallingWordsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FallingWordsTests/Pods-FallingWordsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1C2AAACC392A10F98C1065 /* Pods_FallingWords.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FallingWords.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B84595AF21FC76CC00627186 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		B84595B421FC7FB200627186 /* GameViewStateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewStateConverter.swift; sourceTree = "<group>"; };
+		B84595B621FC7FBC00627186 /* GameViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewState.swift; sourceTree = "<group>"; };
+		B84595B921FC809B00627186 /* StateStoreBindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateStoreBindable.swift; sourceTree = "<group>"; };
+		B84595BC21FC839600627186 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		B84595BE21FC839B00627186 /* SceneCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		B84595C321FC8C6900627186 /* GameViewStateConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewStateConverterTests.swift; sourceTree = "<group>"; };
 		B84E74C521FC520700880EB1 /* TranslatedWordsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedWordsParser.swift; sourceTree = "<group>"; };
 		B84E74C821FC523000880EB1 /* TranslatedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedWord.swift; sourceTree = "<group>"; };
 		B84E74CA21FC534C00880EB1 /* TranslatedWordsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedWordsLoader.swift; sourceTree = "<group>"; };
@@ -103,6 +117,49 @@
 				60B17F1E858CFC6E0F921D78 /* Pods_FallingWordsTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B84595AD21FC769D00627186 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B84595AE21FC76A700627186 /* GameScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B84595AE21FC76A700627186 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				B84595AF21FC76CC00627186 /* GameViewController.swift */,
+				B84595B421FC7FB200627186 /* GameViewStateConverter.swift */,
+				B84595B621FC7FBC00627186 /* GameViewState.swift */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		B84595B821FC808A00627186 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B84595B921FC809B00627186 /* StateStoreBindable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B84595BB21FC838D00627186 /* SceneCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B84595BC21FC839600627186 /* Scene.swift */,
+				B84595BE21FC839B00627186 /* SceneCoordinator.swift */,
+			);
+			path = SceneCoordinator;
+			sourceTree = "<group>";
+		};
+		B84595C221FC8C4F00627186 /* ViewStateTests */ = {
+			isa = PBXGroup;
+			children = (
+				B84595C321FC8C6900627186 /* GameViewStateConverterTests.swift */,
+			);
+			path = ViewStateTests;
 			sourceTree = "<group>";
 		};
 		B84E74C421FC51C200880EB1 /* Services */ = {
@@ -182,6 +239,9 @@
 		B851DFE521FB393A002D4A6C /* FallingWords */ = {
 			isa = PBXGroup;
 			children = (
+				B84595BB21FC838D00627186 /* SceneCoordinator */,
+				B84595B821FC808A00627186 /* Utils */,
+				B84595AD21FC769D00627186 /* Scenes */,
 				B84E74D821FC687B00880EB1 /* AppState */,
 				B84E74C721FC521E00880EB1 /* Models */,
 				B84E74C421FC51C200880EB1 /* Services */,
@@ -200,6 +260,7 @@
 		B851DFFA21FB393B002D4A6C /* FallingWordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				B84595C221FC8C4F00627186 /* ViewStateTests */,
 				B84E74E721FC73A700880EB1 /* TestData */,
 				B84E74E421FC703200880EB1 /* Mocks */,
 				B84E74D321FC573100880EB1 /* ServicesTests */,
@@ -360,6 +421,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxFeedback/RxFeedback.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -369,6 +431,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFeedback.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +533,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B84E74D021FC558200880EB1 /* RoundData.swift in Sources */,
+				B84595B521FC7FB200627186 /* GameViewStateConverter.swift in Sources */,
+				B84595BD21FC839600627186 /* Scene.swift in Sources */,
+				B84595BF21FC839B00627186 /* SceneCoordinator.swift in Sources */,
+				B84595BA21FC809B00627186 /* StateStoreBindable.swift in Sources */,
 				B84E74DE21FC68A900880EB1 /* AppStateStore.swift in Sources */,
 				B84E74CB21FC534C00880EB1 /* TranslatedWordsLoader.swift in Sources */,
 				B84E74D221FC562500880EB1 /* RoundsDataProvider.swift in Sources */,
@@ -478,6 +545,8 @@
 				B84E74C921FC523000880EB1 /* TranslatedWord.swift in Sources */,
 				B84E74DC21FC68A300880EB1 /* SideEffects.swift in Sources */,
 				B851DFE721FB393A002D4A6C /* AppDelegate.swift in Sources */,
+				B84595B021FC76CC00627186 /* GameViewController.swift in Sources */,
+				B84595B721FC7FBC00627186 /* GameViewState.swift in Sources */,
 				B84E74C621FC520700880EB1 /* TranslatedWordsParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,6 +559,7 @@
 				B84E74CD21FC54A900880EB1 /* TranslatedWordsParserTests.swift in Sources */,
 				B84E74E121FC6BCF00880EB1 /* ReducerTests.swift in Sources */,
 				B84E74D521FC575D00880EB1 /* RoundsDataProviderTests.swift in Sources */,
+				B84595C421FC8C6900627186 /* GameViewStateConverterTests.swift in Sources */,
 				B84E74E321FC6D1500880EB1 /* SideEffectsInvocationTests.swift in Sources */,
 				B84E74E621FC705500880EB1 /* SideEffectsMock.swift in Sources */,
 			);

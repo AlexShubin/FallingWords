@@ -13,7 +13,7 @@ struct AppState: Equatable {
     /// Game is started.
     var gameIsStarted = false
     /// Current round.
-    var currentRound = 1
+    var currentRound = 0
 }
 
 // MARK: - Events

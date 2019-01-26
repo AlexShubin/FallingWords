@@ -1,4 +1,7 @@
 
-"str1" = "str1";
+"game_screen.title" = "Game";
+"game_screen.header" = "Is that translation correct?";
+"game_screen.right_button" = "Right!";
+"game_screen.wrong_button" = "Wrong";
 
 
