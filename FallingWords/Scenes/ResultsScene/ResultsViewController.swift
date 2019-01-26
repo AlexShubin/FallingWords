@@ -19,7 +19,7 @@ class ResultsViewController: UIViewController {
 
     private let _headerLabel: UILabel = {
         let label = UILabel()
-        label.text = L10n.GameScreen.header
+        label.text = L10n.ResultsScreen.header
         label.font = Constants.headerFont
         return label
     }()
@@ -41,7 +41,7 @@ class ResultsViewController: UIViewController {
         _setupLayout()
 
         view.backgroundColor = .white
-        title = L10n.GameScreen.title
+        title = L10n.ResultsScreen.title
     }
 
     private func _setupLayout() {
@@ -76,8 +76,9 @@ class ResultsViewController: UIViewController {
     }
 
     func render(with state: ResultsViewState) {
-//        _wordLabel.text = state.questionWord
-//        _floatingWordLabel.text = state.answerWord
+        _rightAnswersLabel.text = state.rightAnswersText
+        _rightAnswersLabel.text = state.rightAnswersText
+        _wrongAnswersLabel.text = state.wrongAnswersText
     }
 }
 
