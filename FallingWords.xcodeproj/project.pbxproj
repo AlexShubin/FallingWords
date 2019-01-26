@@ -17,6 +17,11 @@
 		B84E74D221FC562500880EB1 /* RoundsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74D121FC562500880EB1 /* RoundsDataProvider.swift */; };
 		B84E74D521FC575D00880EB1 /* RoundsDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74D421FC575D00880EB1 /* RoundsDataProviderTests.swift */; };
 		B84E74D721FC58B200880EB1 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74D621FC58B200880EB1 /* TestData.swift */; };
+		B84E74DA21FC689D00880EB1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74D921FC689D00880EB1 /* AppState.swift */; };
+		B84E74DC21FC68A300880EB1 /* SideEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74DB21FC68A200880EB1 /* SideEffects.swift */; };
+		B84E74DE21FC68A900880EB1 /* AppStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74DD21FC68A900880EB1 /* AppStateStore.swift */; };
+		B84E74E121FC6BCF00880EB1 /* ReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74E021FC6BCF00880EB1 /* ReducerTests.swift */; };
+		B84E74E321FC6D1500880EB1 /* SideEffectsInvocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84E74E221FC6D1500880EB1 /* SideEffectsInvocationTests.swift */; };
 		B851DFE721FB393A002D4A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B851DFE621FB393A002D4A6C /* AppDelegate.swift */; };
 		B851DFEC21FB393A002D4A6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B851DFEA21FB393A002D4A6C /* Main.storyboard */; };
 		B851DFEE21FB393B002D4A6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B851DFED21FB393B002D4A6C /* Assets.xcassets */; };
@@ -49,6 +54,11 @@
 		B84E74D121FC562500880EB1 /* RoundsDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundsDataProvider.swift; sourceTree = "<group>"; };
 		B84E74D421FC575D00880EB1 /* RoundsDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundsDataProviderTests.swift; sourceTree = "<group>"; };
 		B84E74D621FC58B200880EB1 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		B84E74D921FC689D00880EB1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		B84E74DB21FC68A200880EB1 /* SideEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideEffects.swift; sourceTree = "<group>"; };
+		B84E74DD21FC68A900880EB1 /* AppStateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateStore.swift; sourceTree = "<group>"; };
+		B84E74E021FC6BCF00880EB1 /* ReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
+		B84E74E221FC6D1500880EB1 /* SideEffectsInvocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffectsInvocationTests.swift; sourceTree = "<group>"; };
 		B851DFE321FB393A002D4A6C /* FallingWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallingWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B851DFE621FB393A002D4A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B851DFEB21FB393A002D4A6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +131,16 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		B84E74D821FC687B00880EB1 /* AppState */ = {
+			isa = PBXGroup;
+			children = (
+				B84E74DD21FC68A900880EB1 /* AppStateStore.swift */,
+				B84E74D921FC689D00880EB1 /* AppState.swift */,
+				B84E74DB21FC68A200880EB1 /* SideEffects.swift */,
+			);
+			path = AppState;
+			sourceTree = "<group>";
+		};
 		B851DFDA21FB393A002D4A6C = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +164,7 @@
 		B851DFE521FB393A002D4A6C /* FallingWords */ = {
 			isa = PBXGroup;
 			children = (
+				B84E74D821FC687B00880EB1 /* AppState */,
 				B84E74C721FC521E00880EB1 /* Models */,
 				B84E74C421FC51C200880EB1 /* Services */,
 				B851E00621FB3AC7002D4A6C /* words.json */,
@@ -162,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				B84E74D621FC58B200880EB1 /* TestData.swift */,
+				B84E74E021FC6BCF00880EB1 /* ReducerTests.swift */,
+				B84E74E221FC6D1500880EB1 /* SideEffectsInvocationTests.swift */,
 				B84E74D321FC573100880EB1 /* Services */,
 				B851DFFD21FB393B002D4A6C /* Info.plist */,
 			);
@@ -426,10 +449,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B84E74D021FC558200880EB1 /* RoundData.swift in Sources */,
+				B84E74DE21FC68A900880EB1 /* AppStateStore.swift in Sources */,
 				B84E74CB21FC534C00880EB1 /* TranslatedWordsLoader.swift in Sources */,
 				B84E74D221FC562500880EB1 /* RoundsDataProvider.swift in Sources */,
+				B84E74DA21FC689D00880EB1 /* AppState.swift in Sources */,
 				B89BCAC821FB5CE900F0EB5B /* Strings.swift in Sources */,
 				B84E74C921FC523000880EB1 /* TranslatedWord.swift in Sources */,
+				B84E74DC21FC68A300880EB1 /* SideEffects.swift in Sources */,
 				B851DFE721FB393A002D4A6C /* AppDelegate.swift in Sources */,
 				B84E74C621FC520700880EB1 /* TranslatedWordsParser.swift in Sources */,
 			);
@@ -441,7 +467,9 @@
 			files = (
 				B84E74D721FC58B200880EB1 /* TestData.swift in Sources */,
 				B84E74CD21FC54A900880EB1 /* TranslatedWordsParserTests.swift in Sources */,
+				B84E74E121FC6BCF00880EB1 /* ReducerTests.swift in Sources */,
 				B84E74D521FC575D00880EB1 /* RoundsDataProviderTests.swift in Sources */,
+				B84E74E321FC6D1500880EB1 /* SideEffectsInvocationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

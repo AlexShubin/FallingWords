@@ -20,7 +20,6 @@ class RoundsDataProviderTests: XCTestCase {
         let roundsData = roundsProvider.provide(3)
         // Then
         let uniqueQuestionWords = Set(roundsData.map { $0.questionWord })
-        print(uniqueQuestionWords)
         XCTAssertEqual(uniqueQuestionWords.count, 3)
     }
 
