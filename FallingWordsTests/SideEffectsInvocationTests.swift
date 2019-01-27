@@ -11,6 +11,10 @@ import XCTest
 import RxTest
 import RxSwift
 
+// Super-simple idea here:
+// 1) Apply some events to the system
+// 2) Check which side effects were invoked
+
 class SideEffectsInvocationTests: XCTestCase {
 
     let sideEffectsMock = SideEffectsMock()
@@ -28,6 +32,7 @@ class SideEffectsInvocationTests: XCTestCase {
         // Given
         let effectsObserver = testScheduler.createObserver(String.self)
         testScheduler.createColdObservable([
+            // 1)
             Recorded.next(210, .startGame)
             ])
             .bind(to: stateStore.eventBus)
@@ -41,6 +46,7 @@ class SideEffectsInvocationTests: XCTestCase {
         }
         // Then
         XCTAssertEqual(effectsObserver.events, [
+            // 2)
             Recorded.next(210, "provideShuffledRoundsData"),
             Recorded.next(210, "turnOnTimer")
             ])
@@ -53,6 +59,7 @@ class SideEffectsInvocationTests: XCTestCase {
         stateStore = AppStateStore(sideEffects: sideEffectsMock, scheduler: testScheduler, initialState: state)
         let effectsObserver = testScheduler.createObserver(String.self)
         testScheduler.createColdObservable([
+            // 1)
             Recorded.next(220, .roundsDataLoaded(TestData.roundsData)),
             Recorded.next(230, .answer(.right)),
             Recorded.next(240, .answer(.right)),
@@ -69,6 +76,7 @@ class SideEffectsInvocationTests: XCTestCase {
         }
         // Then
         XCTAssertEqual(effectsObserver.events, [
+            // 2)
             Recorded.next(250, "showResults")
             ])
     }

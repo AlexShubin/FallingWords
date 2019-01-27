@@ -36,7 +36,6 @@ class GameViewController: UIViewController {
         button.setTitle(L10n.GameScreen.wrongButton, for: .normal)
         return button
     }()
-    private let _buttonsContainer = UIView(frame: .zero)
 
     init(converter: GameViewStateConverter) {
         _converter = converter
@@ -81,35 +80,21 @@ class GameViewController: UIViewController {
     }
 
     private func _setupButtonsLayout() {
-        view.addSubview(_buttonsContainer)
-        _buttonsContainer.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            _buttonsContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                       constant: Constants.margin),
-            _buttonsContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                        constant: -Constants.margin),
-            _buttonsContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor,
-                                                      constant: -Constants.margin)
-            ])
-        _buttonsContainer.addSubview(_rightButton)
+        view.addSubview(_rightButton)
         _rightButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            _rightButton.leadingAnchor.constraint(equalTo: _buttonsContainer.leadingAnchor,
-                                                  constant: Constants.margin),
-            _rightButton.bottomAnchor.constraint(equalTo: _buttonsContainer.bottomAnchor,
-                                                 constant: -Constants.margin),
-            _rightButton.topAnchor.constraint(equalTo: _buttonsContainer.topAnchor,
-                                              constant: Constants.margin)
+            _rightButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                  constant: Constants.buttonsMargin),
+            _rightButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                 constant: -Constants.buttonsMargin)
             ])
-        _buttonsContainer.addSubview(_wrongButton)
+        view.addSubview(_wrongButton)
         _wrongButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            _wrongButton.trailingAnchor.constraint(equalTo: _buttonsContainer.trailingAnchor,
-                                                   constant: -Constants.margin),
-            _wrongButton.bottomAnchor.constraint(equalTo: _buttonsContainer.bottomAnchor,
-                                                 constant: -Constants.margin),
-            _wrongButton.topAnchor.constraint(equalTo: _buttonsContainer.topAnchor,
-                                              constant: Constants.margin)
+            _wrongButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                   constant: -Constants.buttonsMargin),
+            _wrongButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                 constant: -Constants.buttonsMargin)
             ])
     }
 
@@ -124,7 +109,7 @@ class GameViewController: UIViewController {
         _floatingWordTopConstraint?.constant = Constants.margin
         view.layoutIfNeeded()
         // Height between top label and bottom buttons
-        let animationShift = _buttonsContainer.frame.origin.y - _floatingWordLabel.frame.origin.y
+        let animationShift = _rightButton.frame.origin.y - _floatingWordLabel.frame.origin.y
         UIView.animateKeyframes(
             withDuration: duration,
             delay: 0,
@@ -175,6 +160,7 @@ extension GameViewController: StateStoreBindable {
 extension GameViewController {
     enum Constants {
         static let margin: CGFloat = 24
+        static let buttonsMargin: CGFloat = margin * 2
         static let headerFont = UIFont.boldSystemFont(ofSize: 26)
     }
 }

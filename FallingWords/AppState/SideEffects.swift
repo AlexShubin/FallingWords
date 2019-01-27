@@ -5,6 +5,7 @@
 import RxSwift
 import RxFeedback
 
+// Feedback loop is just some feed back to app state.
 typealias FeedbackLoop = (ObservableSchedulerContext<AppState>) -> Observable<AppEvent>
 
 protocol SideEffects {
@@ -18,6 +19,7 @@ protocol SideEffects {
 extension SideEffects {
     var feedbackLoops: [FeedbackLoop] {
         return [
+            // Read like this: if something happens - then do some effects
             react(query: { $0.queryShouldProvideNewRoundsOfCount }, effects: provideShuffledRoundsData),
             react(query: { $0.queryLastRoundFinished }, effects: showResults),
             react(query: { $0.queryShouldTurnOnTimer }, effects: turnOnTimer),

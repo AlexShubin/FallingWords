@@ -6,6 +6,8 @@
 import RxSwift
 import RxCocoa
 
+// Simplified version of coordinator.
+
 protocol SceneCoordinatorType {
     @discardableResult
     func push(scene: Scene) -> Observable<Void>

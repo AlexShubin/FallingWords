@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Introducing all the dependencies to each other 🤗
         // Coordinator and scene factory
         let vcFactory = SceneFactory(gameViewStateConverter: GameViewStateConverter(),
                                      resultsViewStateConverter: ResultsViewStateConverter())

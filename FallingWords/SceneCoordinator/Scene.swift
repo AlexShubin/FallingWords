@@ -4,11 +4,13 @@
 
 import UIKit
 
+/// All app scenes.
 enum Scene {
     case game
     case results
 }
 
+/// Scene factory makes view controller from `Scene`.
 class SceneFactory {
     private let _gameViewStateConverter: GameViewStateConverter
     private let _resultsViewStateConverter: ResultsViewStateConverter

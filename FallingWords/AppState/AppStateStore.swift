@@ -6,6 +6,10 @@ import RxSwift
 import RxCocoa
 import RxFeedback
 
+// Super-simple idea here
+// - eventBus is to accept events from any `StateStoreBindable`, e.g. view controller
+// - stateBus emits state and any `StateStoreBindable` can subscribe, e.g. view controller
+
 struct AppStateStore {
 
     let eventBus: PublishRelay<AppEvent>

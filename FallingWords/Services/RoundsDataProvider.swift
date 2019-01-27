@@ -6,6 +6,11 @@
 //  Copyright © 2019 AlexShubin. All rights reserved.
 //
 
+// Didn't do classic way of making services. Because then I need 3 things - protocol, service impl., mock.
+// Harder to maintain, more code etc.
+// Services should be stateless so we can consider them as functions,
+// and dependency injection could be done via factory method parameters.
+
 struct RoundsDataProvider {
     let provide: (_ roundsCount: Int) -> [RoundData]
 
