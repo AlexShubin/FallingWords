@@ -34,7 +34,7 @@ So every step up to UIKit is fully tested 🤓.
 Another interesting things:
 
 - [RoundsProvider](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/Services/RoundsDataProvider.swift) always provides 50% of the right answers and the the other part is random - right/wrong.
-- [Animation rendering](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/Scenes/GameScene/GameViewController.swift#L104) clears previous animations and fires new one on every render invocation with duration provided by the state.
+- [Animation rendering](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/Scenes/GameScene/GameViewController.swift#L104) clears previous animations and fires the new one on every render invocation with duration provided by the state.
 #### * decisions made because of restricted time
 - [WordsLoader](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/Services/TranslatedWordsLoader.swift) should be asynchronous, so `DiskLoader` implemetation may be easily replaced with for example 'ApiLoader' implemetation. But it would take some additional work on UI (activity indicators, failures, etc...).
 - [There](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/AppState/SideEffects.swift#L61) shouldn't be a singleton. The timer should be a separate dependency, which should be tested with TestScheduler.
