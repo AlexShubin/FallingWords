@@ -29,7 +29,7 @@ The concept seemed quite easy to me - basically we need two things:
 - Also side effects emit events into reducer (e.g. [timer](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/AppState/SideEffects.swift#L59))
 - [StateConverter](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/Scenes/ResultsScene/ResultsViewStateConverter.swift) translates app state into primitive types(`String`) which can be rendered by UIKit.
 
-So every step up to UIKit is fully tested.
+So every step up to UIKit is fully tested 🤓.
 
 Another interesting things:
 
