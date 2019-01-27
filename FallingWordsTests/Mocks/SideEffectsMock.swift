@@ -10,6 +10,20 @@
 import RxSwift
 
 struct SideEffectsMock: SideEffects {
+    var turnOnTimer: () -> Observable<AppEvent> {
+        return {
+            self.effects.onNext(#function)
+            return .empty()
+        }
+    }
+
+    var fireTimer: (TimeInterval) -> Observable<AppEvent> {
+        return { _ in
+            self.effects.onNext(#function)
+            return .empty()
+        }
+    }
+
     var showResults: () -> Observable<AppEvent> {
         return {
             self.effects.onNext(#function)

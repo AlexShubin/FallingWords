@@ -11,12 +11,16 @@ import XCTest
 
 class ReducerTests: XCTestCase {
 
+    // MARK: - Load data event
+
     func testRoundsDataLoadedPutsDataIntoTheState() {
         // When
         let state = AppState.reduce(state: .initial, event: .roundsDataLoaded(TestData.roundsData))
         // Then
         XCTAssertEqual(state.roundsData, TestData.roundsData)
     }
+
+    // MARK: - StartGame event
 
     func testGameIsNotStartedOnInitial() {
         XCTAssertFalse(AppState.initial.gameIsStarted)
@@ -29,15 +33,19 @@ class ReducerTests: XCTestCase {
         XCTAssertTrue(state.gameIsStarted)
     }
 
+    // MARK: - Answer event
+
     func testAnswerIncrementsGameRound() {
         // When
         let state = AppState.applyEvents(initial: .initial, events: [
             .roundsDataLoaded(TestData.roundsData),
-            .answer(correct: true)
+            .answer(.right)
             ])
         // Then
         XCTAssertEqual(state.currentRound, AppState.initial.currentRound + 1)
     }
+
+    // MARK: - Game results calculation
 
     func testInitialGameResultsAreEmpty() {
         XCTAssertEqual(AppState.initial.gameResults, GameResults.empty)
@@ -46,7 +54,7 @@ class ReducerTests: XCTestCase {
     func testRightAnswerOnCorrectTranslationIncrementsResultsRightAnswer() {
         let state = AppState.applyEvents(initial: .initial, events: [
             .roundsDataLoaded([RoundData(questionWord: "", answerWord: "", isTranslationCorrect: true)]),
-            .answer(correct: true)
+            .answer(.right)
             ])
         XCTAssertEqual(state.gameResults.rightAnswers, 1)
     }
@@ -54,7 +62,7 @@ class ReducerTests: XCTestCase {
     func testWrongAnswerOnWrongTranslationIncrementsResultRightAnswer() {
         let state = AppState.applyEvents(initial: .initial, events: [
             .roundsDataLoaded([RoundData(questionWord: "", answerWord: "", isTranslationCorrect: false)]),
-            .answer(correct: false)
+            .answer(.wrong)
             ])
         XCTAssertEqual(state.gameResults.rightAnswers, 1)
     }
@@ -62,8 +70,37 @@ class ReducerTests: XCTestCase {
     func testRightAnswerOnWrongTranslationIncrementsResultsWrongAnswer() {
         let state = AppState.applyEvents(initial: .initial, events: [
             .roundsDataLoaded([RoundData(questionWord: "", answerWord: "", isTranslationCorrect: false)]),
-            .answer(correct: true)
+            .answer(.right)
             ])
         XCTAssertEqual(state.gameResults.wrongAnswers, 1)
+    }
+
+    func testWrongAnswerOnCorrectTranslationIncrementsResultsWrongAnswer() {
+        let state = AppState.applyEvents(initial: .initial, events: [
+            .roundsDataLoaded([RoundData(questionWord: "", answerWord: "", isTranslationCorrect: true)]),
+            .answer(.wrong)
+            ])
+        XCTAssertEqual(state.gameResults.wrongAnswers, 1)
+    }
+
+    func testTimeOutEventIncrementsNoAnswers() {
+        let state = AppState.applyEvents(initial: .initial, events: [
+            .roundsDataLoaded([RoundData(questionWord: "", answerWord: "", isTranslationCorrect: true)]),
+            .answer(.timeout)
+            ])
+        XCTAssertEqual(state.gameResults.noAnswers, 1)
+    }
+
+    // MARK: - Game finish condition
+
+    func testGameFinishesWhenRoundsCountExceedsAvailableRoundCount() {
+        var initial = AppState.initial
+        initial.roundsCount = 2
+        let state = AppState.applyEvents(initial: .initial, events: [
+            .roundsDataLoaded(TestData.roundsData),
+            .answer(.right),
+            .answer(.wrong)
+            ])
+        XCTAssertFalse(state.gameIsStarted)
     }
 }

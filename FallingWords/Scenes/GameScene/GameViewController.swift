@@ -116,6 +116,30 @@ class GameViewController: UIViewController {
     func render(with state: GameViewState) {
         _wordLabel.text = state.questionWord
         _floatingWordLabel.text = state.answerWord
+        _animateRendering(with: state.animationDuration)
+    }
+
+    private func _animateRendering(with duration: TimeInterval) {
+        _floatingWordLabel.layer.removeAllAnimations()
+        _floatingWordTopConstraint?.constant = Constants.margin
+        view.layoutIfNeeded()
+        // Height between top label and bottom buttons
+        let animationShift = _buttonsContainer.frame.origin.y - _floatingWordLabel.frame.origin.y
+        UIView.animateKeyframes(
+            withDuration: duration,
+            delay: 0,
+            options: [],
+            animations: { [weak self] in
+                self?._floatingWordTopConstraint?.constant = animationShift
+                self?.view.layoutIfNeeded()
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2, animations: {
+                    self?._floatingWordLabel.alpha = 1
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2, animations: {
+                    self?._floatingWordLabel.alpha = 0
+                })
+            }
+        )
     }
 }
 
@@ -137,11 +161,11 @@ extension GameViewController: StateStoreBindable {
             .disposed(by: bag)
         // UI Events
         _rightButton.rx.tap
-            .map { .answer(correct: true) }
+            .map { .answer(.right) }
             .bind(to: stateStore.eventBus)
             .disposed(by: bag)
         _wrongButton.rx.tap
-            .map { .answer(correct: false) }
+            .map { .answer(.wrong) }
             .bind(to: stateStore.eventBus)
             .disposed(by: bag)
     }

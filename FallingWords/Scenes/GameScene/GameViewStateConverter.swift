@@ -13,6 +13,7 @@ struct GameViewStateConverter {
         }
         let currentRound = state.roundsData[state.currentRound]
         return GameViewState(questionWord: currentRound.questionWord,
-                             answerWord: currentRound.answerWord)
+                             answerWord: currentRound.answerWord,
+                             animationDuration: state.roundDuration)
     }
 }

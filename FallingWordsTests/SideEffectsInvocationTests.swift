@@ -24,7 +24,7 @@ class SideEffectsInvocationTests: XCTestCase {
         stateStore = AppStateStore(sideEffects: sideEffectsMock, scheduler: testScheduler)
     }
 
-    func testProvidesRoundsDataOnStartGame() {
+    func testProvidesRoundsDataOnStartGameAndStartsTheTimer() {
         // Given
         let effectsObserver = testScheduler.createObserver(String.self)
         testScheduler.createColdObservable([
@@ -41,7 +41,8 @@ class SideEffectsInvocationTests: XCTestCase {
         }
         // Then
         XCTAssertEqual(effectsObserver.events, [
-            Recorded.next(210, "provideShuffledRoundsData")
+            Recorded.next(210, "provideShuffledRoundsData"),
+            Recorded.next(210, "turnOnTimer")
             ])
     }
 
@@ -53,9 +54,9 @@ class SideEffectsInvocationTests: XCTestCase {
         let effectsObserver = testScheduler.createObserver(String.self)
         testScheduler.createColdObservable([
             Recorded.next(220, .roundsDataLoaded(TestData.roundsData)),
-            Recorded.next(230, .answer(correct: true)),
-            Recorded.next(240, .answer(correct: true)),
-            Recorded.next(250, .answer(correct: true))
+            Recorded.next(230, .answer(.right)),
+            Recorded.next(240, .answer(.right)),
+            Recorded.next(250, .answer(.right))
             ])
             .bind(to: stateStore.eventBus)
             .disposed(by: bag)
@@ -69,6 +70,27 @@ class SideEffectsInvocationTests: XCTestCase {
         // Then
         XCTAssertEqual(effectsObserver.events, [
             Recorded.next(250, "showResults")
+            ])
+    }
+
+    func testFiresTimerOnTurnOnTimerEvent() {
+        // Given
+        let effectsObserver = testScheduler.createObserver(String.self)
+        testScheduler.createColdObservable([
+            Recorded.next(220, .turnOnTimer)
+            ])
+            .bind(to: stateStore.eventBus)
+            .disposed(by: bag)
+        sideEffectsMock.effects
+            .subscribe(effectsObserver)
+            .disposed(by: bag)
+        // When
+        _ = testScheduler.start { [unowned self] in
+            self.stateStore.stateBus.asObservable()
+        }
+        // Then
+        XCTAssertEqual(effectsObserver.events, [
+            Recorded.next(220, "fireTimer")
             ])
     }
 }

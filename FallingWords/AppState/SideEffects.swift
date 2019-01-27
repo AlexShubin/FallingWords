@@ -10,13 +10,17 @@ typealias FeedbackLoop = (ObservableSchedulerContext<AppState>) -> Observable<Ap
 protocol SideEffects {
     var provideShuffledRoundsData: (_ roundsCount: Int) -> Observable<AppEvent> { get }
     var showResults: () -> Observable<AppEvent> { get }
+    var turnOnTimer: () -> Observable<AppEvent> { get }
+    var fireTimer: (_ duration: TimeInterval) -> Observable<AppEvent> { get }
 }
 
 extension SideEffects {
     var feedbackLoops: [FeedbackLoop] {
         return [
             react(query: { $0.queryShouldProvideNewRoundsOfCount }, effects: provideShuffledRoundsData),
-            react(query: { $0.queryLastRoundFinished }, effects: showResults)
+            react(query: { $0.queryLastRoundFinished }, effects: showResults),
+            react(query: { $0.queryShouldTurnOnTimer }, effects: turnOnTimer),
+            react(query: { $0.queryShouldFireTimerWithDuration }, effects: fireTimer)
         ]
     }
 }
@@ -34,7 +38,23 @@ struct AppSideEffects: SideEffects {
 
     var showResults: () -> Observable<AppEvent> {
         return {
-            self.sceneCoordinator.push(scene: .results).map { .stopGame }
+            self.sceneCoordinator
+                .push(scene: .results)
+                .flatMap { Observable.empty() }
+        }
+    }
+
+    var turnOnTimer: () -> Observable<AppEvent> {
+        return {
+            .just(.turnOnTimer)
+        }
+    }
+
+    var fireTimer: (_ duration: TimeInterval) -> Observable<AppEvent> {
+        return { duration in
+            Observable
+                .just(.answer(.timeout))
+                .delay(duration, scheduler: MainScheduler.instance)
         }
     }
 }

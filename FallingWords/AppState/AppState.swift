@@ -2,6 +2,8 @@
 //  Copyright © 2018 AlexShubin. All rights reserved.
 //
 
+import Foundation
+
 // MARK: - State
 struct AppState: Equatable {
     static let initial = AppState()
@@ -16,18 +18,23 @@ struct AppState: Equatable {
     var currentRound = 0
     /// Accumulated results of the game session.
     var gameResults = GameResults.empty
+    /// Round duration.
+    let roundDuration: TimeInterval = 4
+    /// Timer is on.
+    var isTimerOn = false
 }
 
 // MARK: - Events
 enum AppEvent: Equatable {
-    /// Answer received (correct or not).
-    case answer(correct: Bool)
+    enum AnswerType { case right, wrong, timeout }
+    /// Answer received.
+    case answer(AnswerType)
     /// Starts game.
     case startGame
-    /// Stops game.
-    case stopGame
     /// New rounds data loaded.
     case roundsDataLoaded([RoundData])
+    /// Turn on timer.
+    case turnOnTimer
 }
 
 // MARK: - Queries
@@ -38,29 +45,41 @@ extension AppState {
     var queryLastRoundFinished: Void? {
         return currentRound >= roundsCount ? () : nil
     }
+    var queryShouldTurnOnTimer: Void? {
+        return gameIsStarted && !isTimerOn ? () : nil
+    }
+    var queryShouldFireTimerWithDuration: TimeInterval? {
+        return isTimerOn ? roundDuration : nil
+    }
 }
 
 // MARK: - Reducer
 extension AppState {
     static func reduce(state: AppState, event: AppEvent) -> AppState {
-        //debugPrint("EVENT: \(event)")
+        print("EVENT: \(event)")
         var result = state
         switch event {
         case .roundsDataLoaded(let roundsData):
             result.roundsData = roundsData
         case .startGame:
             result.gameIsStarted = true
-        case .answer(let correct):
-            result.currentRound += 1
-            if correct == state.currentRoundData.isTranslationCorrect {
+        case .answer(let type):
+            if type == .timeout {
+                result.gameResults.noAnswers += 1
+            } else if (type == .right && state.currentRoundData.isTranslationCorrect)
+                || (type == .wrong && !state.currentRoundData.isTranslationCorrect) {
                 result.gameResults.rightAnswers += 1
             } else {
                 result.gameResults.wrongAnswers += 1
             }
             print(result.gameResults)
-        case .stopGame:
-            result.gameIsStarted = false
-            result.currentRound = 0
+            result.currentRound += 1
+            result.isTimerOn = false
+            if result.currentRound >= result.roundsCount {
+                result.gameIsStarted = false
+            }
+        case .turnOnTimer:
+            result.isTimerOn = true
         }
         return result
     }

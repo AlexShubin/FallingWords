@@ -10,7 +10,7 @@ struct RoundsDataProvider {
     let provide: (_ roundsCount: Int) -> [RoundData]
 
     /// Makes game data provider implemetation,
-    /// which creates 50% right answers and other 50% are random - right or wrong🤔.
+    /// which creates 50% of right answers and the other 50% are random - right/wrong🤔.
     static func makeShuffledProvider(with wordsLoader: TranslatedWordsLoader) -> RoundsDataProvider {
         return RoundsDataProvider(provide: { roundsCount in
             let allWords = wordsLoader.load()

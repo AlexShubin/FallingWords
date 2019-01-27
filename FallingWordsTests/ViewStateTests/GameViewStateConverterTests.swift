@@ -33,4 +33,13 @@ class GameViewStateConverterTests: XCTestCase {
         // Then
         XCTAssertEqual(state.answerWord, TestData.roundData1.answerWord)
     }
+
+    func testAnimationDurationConverted() {
+        // Given
+        let appState = AppState.reduce(state: .initial, event: .roundsDataLoaded([TestData.roundData1]))
+        // When
+        let state = GameViewStateConverter().convert(from: appState)
+        // Then
+        XCTAssertEqual(state.animationDuration, appState.roundDuration)
+    }
 }
