@@ -4,7 +4,7 @@ There're 2 scenes in this game:
  - Game (where the game happens)
  - Results (provides feedback to a user about the results)
  
- Because both screens share the same state (GameScene should count results, and ResultsScene should show that results) I decided that unidirectional architecture with shared app state should fit nicely, I've picked RxFeedback and described the game state which consists of few vars and could be rendered at any time ([AppState](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/AppState/AppState.swift#L8)).
+ Because both screens share the same state (GameScene should count results, and ResultsScene should show that results) I've decided that unidirectional architecture with a shared app state should fit nicely, I've picked RxFeedback and introduced the game state which consists of few vars and could be rendered at any time ([AppState](https://github.com/AlexShubin/FallingWords/blob/3123a5017fb103b43c78a285182d0782fe95c1ac/FallingWords/AppState/AppState.swift#L8)).
  
 #### * how much time was invested
 About 7 hours, maybe a little bit less, also I could have saved more time if I had done layout in storyboards.
