@@ -26,6 +26,11 @@ class ResultsViewController: UIViewController {
     private let _rightAnswersLabel = UILabel()
     private let _wrongAnswersLabel = UILabel()
     private let _noAnswersLabel = UILabel()
+    private let _restartButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(L10n.ResultsScreen.restartButton, for: .normal)
+        return button
+    }()
 
     init(converter: ResultsViewStateConverter) {
         _converter = converter
@@ -46,33 +51,23 @@ class ResultsViewController: UIViewController {
     }
 
     private func _setupLayout() {
-        view.addSubview(_headerLabel)
-        _headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        let stack = UIStackView(arrangedSubviews: [
+            _headerLabel,
+            _rightAnswersLabel,
+            _wrongAnswersLabel,
+            _noAnswersLabel,
+            _restartButton
+            ]
+        )
+        stack.spacing = Constants.margin
+        stack.axis = .vertical
+        view.addSubview(stack)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .center
         NSLayoutConstraint.activate([
-            _headerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            _headerLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                              constant: Constants.margin)
-            ])
-        view.addSubview(_rightAnswersLabel)
-        _rightAnswersLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            _rightAnswersLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            _rightAnswersLabel.topAnchor.constraint(equalTo: _headerLabel.bottomAnchor,
-                                                    constant: Constants.margin)
-            ])
-        view.addSubview(_wrongAnswersLabel)
-        _wrongAnswersLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            _wrongAnswersLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            _wrongAnswersLabel.topAnchor.constraint(equalTo: _rightAnswersLabel.bottomAnchor,
-                                                    constant: Constants.margin)
-            ])
-        view.addSubview(_noAnswersLabel)
-        _noAnswersLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            _noAnswersLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            _noAnswersLabel.topAnchor.constraint(equalTo: _wrongAnswersLabel.bottomAnchor,
-                                                 constant: Constants.margin)
+            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                       constant: Constants.margin)
             ])
     }
 
@@ -100,10 +95,10 @@ extension ResultsViewController: StateStoreBindable {
             })
             .disposed(by: bag)
         // UI Events
-//        _rightButton.rx.tap
-//            .map { .answer(correct: true) }
-//            .bind(to: stateStore.eventBus)
-//            .disposed(by: bag)
+        _restartButton.rx.tap
+            .flatMap { Observable.of(.closeResults, .startGame) }
+            .bind(to: stateStore.eventBus)
+            .disposed(by: bag)
     }
 }
 

@@ -9,5 +9,6 @@
 "results_screen.right_answers" = "Right answers: %ld";
 "results_screen.wrong_answers" = "Wrong answers: %ld";
 "results_screen.no_answers" = "No answers: %ld";
+"results_screen.restart_button" = "Start new game";
 
 

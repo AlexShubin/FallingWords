@@ -33,6 +33,20 @@ class ReducerTests: XCTestCase {
         XCTAssertTrue(state.gameIsStarted)
     }
 
+    func testStartGameResetsWholeStateAfterRandomEvents() {
+        // When
+        let state = AppState.applyEvents(initial: .initial, events: [
+            .roundsDataLoaded(TestData.roundsData),
+            .answer(.right),
+            .answer(.wrong),
+            .startGame
+            ])
+        // Then
+        var expectedState = AppState.initial
+        expectedState.gameIsStarted = true
+        XCTAssertEqual(state, expectedState)
+    }
+
     // MARK: - Answer event
 
     func testAnswerIncrementsGameRound() {
@@ -102,5 +116,14 @@ class ReducerTests: XCTestCase {
             .answer(.wrong)
             ])
         XCTAssertFalse(state.gameIsStarted)
+    }
+
+    // MARK: - Close results events
+
+    func testCloseResultsEventSetsShouldCloseResultInTheState() {
+        let state = AppState.applyEvents(initial: .initial, events: [
+            .closeResults
+            ])
+        XCTAssertTrue(state.shouldCloseResults)
     }
 }

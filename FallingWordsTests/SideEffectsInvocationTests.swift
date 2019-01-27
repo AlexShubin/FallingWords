@@ -93,4 +93,25 @@ class SideEffectsInvocationTests: XCTestCase {
             Recorded.next(220, "fireTimer")
             ])
     }
+
+    func testCloseResultsInvokedOnCloseResultsEvent() {
+        // Given
+        let effectsObserver = testScheduler.createObserver(String.self)
+        testScheduler.createColdObservable([
+            Recorded.next(220, .closeResults)
+            ])
+            .bind(to: stateStore.eventBus)
+            .disposed(by: bag)
+        sideEffectsMock.effects
+            .subscribe(effectsObserver)
+            .disposed(by: bag)
+        // When
+        _ = testScheduler.start { [unowned self] in
+            self.stateStore.stateBus.asObservable()
+        }
+        // Then
+        XCTAssertEqual(effectsObserver.events, [
+            Recorded.next(220, "closeResults")
+            ])
+    }
 }

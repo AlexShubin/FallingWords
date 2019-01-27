@@ -30,6 +30,8 @@ internal enum L10n {
     internal static func noAnswers(_ p1: Int) -> String {
       return L10n.tr("Localizable", "results_screen.no_answers", p1)
     }
+    /// Start new game
+    internal static let restartButton = L10n.tr("Localizable", "results_screen.restart_button")
     /// Right answers: %ld
     internal static func rightAnswers(_ p1: Int) -> String {
       return L10n.tr("Localizable", "results_screen.right_answers", p1)

@@ -22,6 +22,8 @@ struct AppState: Equatable {
     let roundDuration: TimeInterval = 4
     /// Timer is on.
     var isTimerOn = false
+    /// Should close results.
+    var shouldCloseResults = false
 }
 
 // MARK: - Events
@@ -35,6 +37,8 @@ enum AppEvent: Equatable {
     case roundsDataLoaded([RoundData])
     /// Turn on timer.
     case turnOnTimer
+    /// Close results.
+    case closeResults
 }
 
 // MARK: - Queries
@@ -51,6 +55,9 @@ extension AppState {
     var queryShouldFireTimerWithDuration: TimeInterval? {
         return isTimerOn ? roundDuration : nil
     }
+    var queryShouldCloseResults: Void? {
+        return shouldCloseResults ? () : nil
+    }
 }
 
 // MARK: - Reducer
@@ -62,6 +69,7 @@ extension AppState {
         case .roundsDataLoaded(let roundsData):
             result.roundsData = roundsData
         case .startGame:
+            result = AppState.initial
             result.gameIsStarted = true
         case .answer(let type):
             if type == .timeout {
@@ -80,6 +88,8 @@ extension AppState {
             }
         case .turnOnTimer:
             result.isTimerOn = true
+        case .closeResults:
+            result.shouldCloseResults = true
         }
         return result
     }

@@ -14,7 +14,7 @@ protocol SceneCoordinatorType {
     func setRoot(scene: Scene) -> Observable<Void>
 
     @discardableResult
-    func popToRoot() -> Observable<Void>
+    func pop() -> Observable<Void>
 }
 
 struct SceneCoordinator: SceneCoordinatorType {
@@ -44,7 +44,7 @@ struct SceneCoordinator: SceneCoordinatorType {
         return .just(())
     }
 
-    func popToRoot() -> Observable<Void> {
+    func pop() -> Observable<Void> {
         let subject = PublishSubject<Void>()
         // navigate up the stack
         // one-off subscription to be notified when pop complete
@@ -53,7 +53,7 @@ struct SceneCoordinator: SceneCoordinatorType {
             .map { _ in }
             .take(1)
             .bind(to: subject)
-        guard _navigationController.popViewController(animated: false) != nil else {
+        guard _navigationController.popViewController(animated: true) != nil else {
             fatalError("Can't navigate back")
         }
         return subject

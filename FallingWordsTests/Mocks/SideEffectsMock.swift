@@ -38,5 +38,12 @@ struct SideEffectsMock: SideEffects {
         }
     }
 
+    var closeResults: () -> Observable<AppEvent> {
+        return {
+            self.effects.onNext(#function)
+            return .empty()
+        }
+    }
+
     let effects = PublishSubject<String>()
 }

@@ -12,6 +12,7 @@ protocol SideEffects {
     var showResults: () -> Observable<AppEvent> { get }
     var turnOnTimer: () -> Observable<AppEvent> { get }
     var fireTimer: (_ duration: TimeInterval) -> Observable<AppEvent> { get }
+    var closeResults: () -> Observable<AppEvent> { get }
 }
 
 extension SideEffects {
@@ -20,7 +21,8 @@ extension SideEffects {
             react(query: { $0.queryShouldProvideNewRoundsOfCount }, effects: provideShuffledRoundsData),
             react(query: { $0.queryLastRoundFinished }, effects: showResults),
             react(query: { $0.queryShouldTurnOnTimer }, effects: turnOnTimer),
-            react(query: { $0.queryShouldFireTimerWithDuration }, effects: fireTimer)
+            react(query: { $0.queryShouldFireTimerWithDuration }, effects: fireTimer),
+            react(query: { $0.queryShouldCloseResults }, effects: closeResults)
         ]
     }
 }
@@ -55,6 +57,14 @@ struct AppSideEffects: SideEffects {
             Observable
                 .just(.answer(.timeout))
                 .delay(duration, scheduler: MainScheduler.instance)
+        }
+    }
+
+    var closeResults: () -> Observable<AppEvent> {
+        return {
+            self.sceneCoordinator
+                .pop()
+                .flatMap { Observable.empty() }
         }
     }
 }
