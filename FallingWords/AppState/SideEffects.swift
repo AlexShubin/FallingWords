@@ -8,23 +8,25 @@ import RxFeedback
 // Feedback loop is just some feed back to app state.
 typealias FeedbackLoop = (ObservableSchedulerContext<AppState>) -> Observable<AppEvent>
 
+struct EmptyInput: Equatable {}
+
 protocol SideEffects {
     var provideShuffledRoundsData: (_ roundsCount: Int) -> Observable<AppEvent> { get }
-    var showResults: () -> Observable<AppEvent> { get }
-    var turnOnTimer: () -> Observable<AppEvent> { get }
+    var showResults: (EmptyInput) -> Observable<AppEvent> { get }
+    var turnOnTimer: (EmptyInput) -> Observable<AppEvent> { get }
     var fireTimer: (_ duration: TimeInterval) -> Observable<AppEvent> { get }
-    var closeResults: () -> Observable<AppEvent> { get }
+    var closeResults: (EmptyInput) -> Observable<AppEvent> { get }
 }
 
 extension SideEffects {
     var feedbackLoops: [FeedbackLoop] {
         return [
             // Read like this: if something happens - then do some effects
-            react(query: { $0.queryShouldProvideNewRoundsOfCount }, effects: provideShuffledRoundsData),
-            react(query: { $0.queryLastRoundFinished }, effects: showResults),
-            react(query: { $0.queryShouldTurnOnTimer }, effects: turnOnTimer),
-            react(query: { $0.queryShouldFireTimerWithDuration }, effects: fireTimer),
-            react(query: { $0.queryShouldCloseResults }, effects: closeResults)
+            react(request: { $0.queryShouldProvideNewRoundsOfCount }, effects: provideShuffledRoundsData),
+            react(request: { $0.queryLastRoundFinished }, effects: showResults),
+            react(request: { $0.queryShouldTurnOnTimer }, effects: turnOnTimer),
+            react(request: { $0.queryShouldFireTimerWithDuration }, effects: fireTimer),
+            react(request: { $0.queryShouldCloseResults }, effects: closeResults)
         ]
     }
 }
@@ -40,16 +42,16 @@ struct AppSideEffects: SideEffects {
         }
     }
 
-    var showResults: () -> Observable<AppEvent> {
-        return {
+    var showResults: (EmptyInput) -> Observable<AppEvent> {
+        return { _ in
             self.sceneCoordinator
                 .push(scene: .results)
                 .flatMap { Observable.empty() }
         }
     }
 
-    var turnOnTimer: () -> Observable<AppEvent> {
-        return {
+    var turnOnTimer: (EmptyInput) -> Observable<AppEvent> {
+        return { _ in
             .just(.turnOnTimer)
         }
     }
@@ -62,8 +64,8 @@ struct AppSideEffects: SideEffects {
         }
     }
 
-    var closeResults: () -> Observable<AppEvent> {
-        return {
+    var closeResults: (EmptyInput) -> Observable<AppEvent> {
+        return { _ in
             self.sceneCoordinator
                 .pop()
                 .flatMap { Observable.empty() }

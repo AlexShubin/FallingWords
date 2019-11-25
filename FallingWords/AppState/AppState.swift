@@ -46,17 +46,17 @@ extension AppState {
     var queryShouldProvideNewRoundsOfCount: Int? {
         return roundsData.isEmpty && gameIsStarted ? roundsCount : nil
     }
-    var queryLastRoundFinished: Void? {
-        return currentRound >= roundsCount ? () : nil
+    var queryLastRoundFinished: EmptyInput? {
+        return currentRound >= roundsCount ? EmptyInput() : nil
     }
-    var queryShouldTurnOnTimer: Void? {
-        return gameIsStarted && !isTimerOn ? () : nil
+    var queryShouldTurnOnTimer: EmptyInput? {
+        return gameIsStarted && !isTimerOn ? EmptyInput() : nil
     }
     var queryShouldFireTimerWithDuration: TimeInterval? {
         return isTimerOn ? roundDuration : nil
     }
-    var queryShouldCloseResults: Void? {
-        return shouldCloseResults ? () : nil
+    var queryShouldCloseResults: EmptyInput? {
+        return shouldCloseResults ? EmptyInput() : nil
     }
 }
 

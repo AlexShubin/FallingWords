@@ -28,7 +28,7 @@ struct AppStateStore {
         stateBus = Observable.system(initialState: initialState,
                                      reduce: AppState.reduce,
                                      scheduler: scheduler,
-                                     scheduledFeedback: feedBacks)
+                                     feedback: feedBacks)
             .asSignal(onErrorSignalWith: .never())
     }
 }

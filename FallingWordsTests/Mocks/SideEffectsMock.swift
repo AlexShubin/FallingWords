@@ -10,8 +10,8 @@
 import RxSwift
 
 struct SideEffectsMock: SideEffects {
-    var turnOnTimer: () -> Observable<AppEvent> {
-        return {
+    var turnOnTimer: (EmptyInput) -> Observable<AppEvent> {
+        return { _ in
             self.effects.onNext(#function)
             return .empty()
         }
@@ -24,8 +24,8 @@ struct SideEffectsMock: SideEffects {
         }
     }
 
-    var showResults: () -> Observable<AppEvent> {
-        return {
+    var showResults: (EmptyInput) -> Observable<AppEvent> {
+        return { _ in
             self.effects.onNext(#function)
             return .empty()
         }
@@ -38,8 +38,8 @@ struct SideEffectsMock: SideEffects {
         }
     }
 
-    var closeResults: () -> Observable<AppEvent> {
-        return {
+    var closeResults: (EmptyInput) -> Observable<AppEvent> {
+        return { _ in
             self.effects.onNext(#function)
             return .empty()
         }
